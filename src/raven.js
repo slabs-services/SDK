@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const CONTROLPLANE_BASE = "http://api.raven.slabs.pt";
+const CONTROLPLANE_BASE = "api.raven.slabs.pt";
 
 export async function SendMail({outboxId, from, fromName, subject, text, html, cc, bcc, to}) {
     if (!outboxId || !from || !fromName || !subject || (!text && !html) || (cc && !Array.isArray(cc)) || (bcc && !Array.isArray(bcc)) || (to && !Array.isArray(to))) {
