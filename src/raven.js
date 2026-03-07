@@ -8,7 +8,7 @@ export async function SendMail(outboxId, from, fromName, subject, text, html, cc
     }
 
     try {
-        const objRes = await axios.post(`http://${CONTROLPLANE_BASE}/sendMail`, {
+        await axios.post(`http://${CONTROLPLANE_BASE}/sendMail`, {
             outboxId,
             from,
             fromName,
@@ -30,7 +30,7 @@ export async function SendMail(outboxId, from, fromName, subject, text, html, cc
             success: true
         };
     } catch (err) {
-        console.error(`SendMail(${objectUrn}) failed:`, err?.message || err);
+        console.error(`SendMail(${outboxId}) failed:`, err?.message || err);
         throw err;
     }
 }
