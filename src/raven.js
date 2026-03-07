@@ -8,7 +8,7 @@ export async function SendMail(outboxId, from, fromName, subject, text, html, cc
     }
 
     try {
-        const objRes = await axios.post(`http://${CONTROLPLANE_BASE}.slabs.pt/sendMail`, {
+        const objRes = await axios.post(`http://${CONTROLPLANE_BASE}/sendMail`, {
             outboxId,
             from,
             fromName,
