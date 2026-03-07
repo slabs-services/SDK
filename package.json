@@ -2,7 +2,7 @@
   "name": "@spacelabs-cloud/cosmic",
   "version": "1.0.6",
   "description": "",
-  "main": "src/lib.js",
+  "main": "src/sdk.js",
   "keywords": [],
   "author": "SpaceLabs",
   "license": "ISC",
@@ -10,5 +10,10 @@
   "dependencies": {
     "axios": "^1.13.5",
     "form-data": "^4.0.5"
+  },
+  "exports": {
+    ".": "./src/sdk.js",
+    "./bytelake": "./src/bytelake.js",
+    "./raven": "./src/raven.js"
   }
 }
