@@ -1,7 +1,9 @@
-import * as Bytelake from "./bytelake.js";
-import * as Raven from "./raven.js";
+import * as BytelakeServer from "./server/bytelake.js";
+import * as RavenServer from "./server/raven.js";
+import * as BytelakeClient from "./client/bytelake.js";
 
 export {
-  Bytelake,
-  Raven
+  BytelakeServer,
+  RavenServer,
+  BytelakeClient
 };

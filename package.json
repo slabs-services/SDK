@@ -13,7 +13,8 @@
   },
   "exports": {
     ".": "./src/sdk.js",
-    "./bytelake": "./src/bytelake.js",
-    "./raven": "./src/raven.js"
+    "./bytelake-server": "./src/server/bytelake.js",
+    "./raven-server": "./src/server/raven.js",
+    "./bytelake-client": "./src/client/bytelake.js"
   }
 }

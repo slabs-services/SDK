@@ -4,32 +4,6 @@ import { Readable } from "stream";
 
 const CONTROLPLANE_BASE = "http://api.bytelake.slabs.pt";
 
-export async function GetObject(objectUrn) {
-  if (!objectUrn || typeof objectUrn !== "string") {
-    throw new TypeError("GetObject(objectUrn): objectUrn must be a non-empty string");
-  }
-
-  try {
-    const infoRes = await axios.get(`${CONTROLPLANE_BASE}/object/${objectUrn}`, {
-      timeout: 1000*10
-    });
-
-    const objRes = await axios.get("http://" + infoRes.data.lakePath + ".lake.tryspacelabs.pt/" + infoRes.data.path + "?authorization=" + process.env.STS_CODE, {
-      responseType: "stream",
-      timeout: 1000*60*10,
-    });
-
-    return {
-      data: objRes.data,
-      name: infoRes.data.name,
-      createdAt: infoRes.data.createdAt
-    };
-  } catch (err) {
-    console.error(`GetObject(${objectUrn}) failed:`, err?.message || err);
-    throw err;
-  }
-}
-
 export async function PutObject(lakeName, data, fileName){
   if (!lakeName){
     throw new Error("PutObject: lakeName is required");
